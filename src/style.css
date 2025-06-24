@@ -1,0 +1,224 @@
+@font-face {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 100 900;
+  font-stretch: 100%;
+  src:
+    local("Inter Regular"),
+    local("Inter-Regular"),
+    url(/fonts/inter/inter.woff2) format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  src:
+    local("Montserrat Bold"),
+    local("Montserrat-Bold"),
+    url(/fonts/montserrat/montserrat-bold.woff2) format("woff2");
+  font-display: swap;
+}
+
+@import "tailwindcss";
+@plugin "daisyui";
+
+@theme {
+  --color-white: oklch(100% 0.00011 271.152);
+  --color-light-gray: oklch(97.315% 0.00011 271.152);
+  --color-gray-2: oklch(80.78% 0.00009 271.152);
+  --color-gray: oklch(59.987% 0.00007 271.152);
+  --color-dark-gray: oklch(29.716% 0.00003 271.152);
+  --color-orange-juice: oklch(69.577% 0.20423 43.479);
+  --color-blueberry: oklch(53.571% 0.22682 302.948);
+  --font-sans: Inter;
+  --font-heading: Montserrat;
+}
+
+html,
+:has(:target) {
+  scroll-behavior: smooth;
+}
+
+@layer components {
+  body {
+    @apply text-dark-gray bg-white;
+  }
+
+  main {
+    @apply px-3;
+  }
+
+  h1,
+  h2 {
+    @apply font-heading;
+  }
+
+  h2 {
+    @apply mt-32 mb-5 text-center text-5xl not-md:text-3xl;
+  }
+
+  .container-fit {
+    @apply mx-auto max-w-[1780px];
+  }
+
+  .link-menu {
+    @apply hover:text-gray-2 active:text-orange-juice text-white duration-200 disabled:text-[#3f3f3f];
+  }
+
+  .link-read {
+    @apply text-gray hover:text-gray active:text-orange-juice visited:text-gray-2 duration-200;
+  }
+  .link-adr {
+    @apply text-dark-gray hover:text-gray active:text-orange-juice visited:text-gray-2 duration-200;
+  }
+  .link-contact {
+    @apply text-gray hover:text-gray-2 duration-200;
+  }
+
+  .button {
+    @apply bg-orange-juice hover:bg-orange-juice/80 disabled:bg-gray-2 w-full rounded-3xl py-5 text-center font-bold text-white uppercase duration-200 active:bg-orange-700 xl:text-2xl;
+  }
+
+  .header-bottom-menu-item {
+    @apply cursor-pointer rounded-3xl bg-white px-3 py-6 text-center text-lg 2xl:rounded-t-3xl 2xl:rounded-b-none;
+  }
+
+  header {
+    @apply bg-light-gray grid w-full gap-14 rounded-b-4xl;
+  }
+
+  header > div:first-child {
+    @apply bg-dark-gray container grid h-full w-full place-items-center rounded-b-3xl text-white not-xl:gap-3 not-xl:pb-3 xl:flex xl:place-content-between xl:px-16;
+  }
+
+  header > div:first-child nav ul {
+    @apply flex gap-14 not-md:grid not-md:place-items-center not-md:gap-1 not-xl:pb-3;
+  }
+
+  header > div:first-child div:last-child {
+    @apply flex place-items-center gap-3;
+  }
+
+  header > div:nth-child(2) {
+    @apply container flex h-fit flex-col place-content-between place-items-center gap-32 xl:flex-row;
+  }
+
+  header > div:nth-child(2) div:first-child {
+    @apply grid h-full w-full gap-10;
+  }
+
+  header > div:nth-child(2) div:last-child {
+    @apply relative grid place-items-center;
+  }
+
+  header > div:last-child {
+    @apply container;
+  }
+
+  header > div:last-child ul {
+    @apply flex place-content-between;
+  }
+
+  .feat-card {
+    @apply bg-light-gray relative grid min-h-96 grid-cols-2 place-content-center overflow-hidden rounded-4xl p-10 not-md:grid-cols-1;
+  }
+  .feat-card h3 {
+    @apply text-dark-gray mb-5 text-3xl;
+  }
+  .feat-card p {
+    @apply text-gray text-2xl;
+  }
+  .feat-card img {
+    @apply absolute right-0 bottom-0 not-md:w-1/5;
+  }
+  .feat-card hgroup {
+    @apply flex gap-8;
+  }
+  .feat-card svg {
+    @apply size-full max-w-[40px];
+  }
+
+  .card-price {
+    @apply bg-light-gray grid rounded-4xl p-10;
+  }
+  .card-price hgroup div > span {
+    @apply border-dark-gray rounded-3xl border-1 bg-white/5 px-5 py-2.5 backdrop-blur-xl;
+  }
+  .card-price h3 {
+    @apply font-heading mt-7 mb-5 text-4xl not-md:text-2xl;
+  }
+  .card-price p {
+    @apply text-gray mb-7 text-2xl;
+  }
+  .card-price ul {
+    @apply mb-10 space-y-5 pl-8 text-2xl marker:text-3xl marker:content-['✓_'];
+  }
+  .card-price .button {
+    @apply place-self-end;
+  }
+
+  .card-price-feat {
+    @apply bg-dark-gray text-white;
+  }
+  .card-price-feat hgroup div > span {
+    @apply border-white;
+  }
+  .price-feat {
+    @apply from-orange-juice to-blueberry bg-gradient-to-r bg-clip-text text-transparent;
+  }
+
+  .extra-card {
+    @apply bg-light-gray relative grid rounded-4xl p-8 xl:p-10;
+  }
+  .extra-card h3 {
+    @apply font-heading mb-5 text-4xl not-md:text-2xl;
+  }
+  .extra-card svg {
+    @apply absolute top-10 right-10 not-sm:hidden not-xl:top-1/3;
+  }
+  .extra-card p {
+    @apply mb-7 align-middle text-2xl;
+  }
+
+  .testimonial-card {
+    @apply bg-light-gray relative grid content-start rounded-4xl p-10;
+  }
+  .testimonial-card hgroup {
+    @apply font-heading mb-5 flex items-center gap-6 text-4xl not-sm:flex-col not-md:text-2xl not-2xl:justify-evenly;
+  }
+  .testimonial-card img {
+    @apply size-10 shrink-0;
+  }
+  .testimonial-card p {
+    @apply text-2xl;
+  }
+
+  .slide h2 {
+    @apply m-0 mb-14;
+  }
+
+  .why-card {
+    @apply bg-light-gray rounded-4xl text-left;
+  }
+  .why-card h3 {
+    @apply mt-0 mb-3 text-left;
+  }
+  .why-card p {
+    @apply text-2xl;
+  }
+  .why-card-top {
+    @apply relative p-10;
+  }
+  .why-card-top h3 {
+    @apply font-heading text-6xl;
+  }
+  .why-card-bottom {
+    @apply text-gray p-7;
+  }
+  .why-card-bottom h3 {
+    @apply mb-5 text-3xl;
+  }
+}
