@@ -138,7 +138,7 @@ html,
     @apply flex gap-8;
   }
   .feat-card svg {
-    @apply size-full max-w-[40px];
+    @apply size-full max-w-[40px] shrink-0;
   }
 
   .card-price {
