@@ -26,10 +26,10 @@
       function showSlide(index) {
         for (var i = 0; i < totalSlides; i++) {
           if (i === index) {
-            $("#slider-" + (i + 1)).fadeIn(400);
+            $("#slider-" + (i + 1)).fadeIn(100);
             $("#sButton" + (i + 1)).addClass("bg-orange-juice");
           } else {
-            $("#slider-" + (i + 1)).fadeOut(400);
+            $("#slider-" + (i + 1)).fadeOut(10);
             $("#sButton" + (i + 1)).removeClass("bg-orange-juice");
           }
         }
@@ -37,7 +37,7 @@
 
       function sliderButton(index) {
         showSlide(index);
-        reinitLoop(4000);
+        reinitLoop(10000);
         cont = index;
       }
 
