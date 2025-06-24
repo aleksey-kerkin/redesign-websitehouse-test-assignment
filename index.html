@@ -8,28 +8,28 @@
     <title>Redesign Website House</title>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
     <script>
-      var cont = 0;
-      var totalSlides = 5; // Total number of slides
+      let count = 0;
+      let totalSlides = 5; // Total number of slides
 
       function loopSlider() {
-        var xx = setInterval(function () {
-          showSlide(cont);
-          cont = (cont + 1) % totalSlides; // Move to the next slide, loop back to 0 after reaching the last slide
+        let timeInterval = setInterval(function () {
+          showSlide(count);
+          count = (count + 1) % totalSlides; // Move to the next slide, loop back to 0 after reaching the last slide
         }, 8000);
       }
 
       function reinitLoop(time) {
-        clearInterval(xx);
+        clearInterval(timeInterval);
         setTimeout(loopSlider, time);
       }
 
       function showSlide(index) {
-        for (var i = 0; i < totalSlides; i++) {
+        for (let i = 0; i < totalSlides; i++) {
           if (i === index) {
             $("#slider-" + (i + 1)).fadeIn(100);
             $("#sButton" + (i + 1)).addClass("bg-orange-juice");
           } else {
-            $("#slider-" + (i + 1)).fadeOut(10);
+            $("#slider-" + (i + 1)).fadeOut(0);
             $("#sButton" + (i + 1)).removeClass("bg-orange-juice");
           }
         }
@@ -38,11 +38,11 @@
       function sliderButton(index) {
         showSlide(index);
         reinitLoop(10000);
-        cont = index;
+        count = index;
       }
 
       $(window).ready(function () {
-        for (var i = 2; i <= totalSlides; i++) {
+        for (let i = 2; i <= totalSlides; i++) {
           $("#slider-" + i).hide();
         }
         $("#sButton1").addClass("bg-orange-juice");
@@ -51,9 +51,9 @@
       });
 
       function toggleText() {
-        var dots = document.getElementById("dots");
-        var moreText = document.getElementById("more");
-        var button = document.getElementById("button");
+        let dots = document.getElementById("dots");
+        let moreText = document.getElementById("more");
+        let button = document.getElementById("button");
 
         if (dots.classList.contains("hidden")) {
           // Show the dots
